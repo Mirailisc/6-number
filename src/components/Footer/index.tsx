@@ -7,7 +7,7 @@ const Footer: React.FC = (): JSX.Element => {
     <footer className="footer">
       <Text>
         Made with 😭 by&nbsp;
-        <a href="https://github.com/Mirailisc" target="_blank" rel="noreferrer">
+        <a href="https://mirailisc.me" target="_blank" rel="noreferrer">
           Mirailisc
         </a>
       </Text>
