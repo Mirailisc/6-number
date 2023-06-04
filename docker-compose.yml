@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  app:
+      container_name: six-number
+      build:
+        context: .
+        dockerfile: Dockerfile
+      volumes:
+        - '.:/usr/src/app'
+        - '/usr/src/app/node_modules'
+      ports:
+        - '8000:8000'
