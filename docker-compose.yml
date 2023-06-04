@@ -11,4 +11,4 @@ services:
     ports:
       - "${PORT}:${PORT}"
     environment:
-      - PORT=$PORT
+      - PORT=${PORT}
