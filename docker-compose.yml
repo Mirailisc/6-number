@@ -7,10 +7,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+    expose:
+      - '80'
     ports:
-      - "${PORT}:${PORT}"
-    environment:
-      - PORT=${PORT}
-    env_file:
-      - stack.env
+      - '80:80'
