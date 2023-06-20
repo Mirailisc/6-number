@@ -1,16 +1,36 @@
 import { useState } from 'react'
-import { Button, Space, Typography } from 'antd'
+import { Button, Space, Typography, message } from 'antd'
 import { CopyFilled } from '@ant-design/icons'
 import { copyNumberFromState } from '../../utils/clipboard'
 import { handleRandomNumber } from '../../utils/randomNumber'
 
 const Main: React.FC = (): JSX.Element => {
   const [randomNumber, setRandomNumber] = useState<number>(0)
-
+  const [messageApi, contextHolder] = message.useMessage()
   const { Title } = Typography
+
+  const alert = (message: any) => {
+    messageApi.open(message)
+  }
+
+  const errorMessage = {
+    type: 'error',
+    content: 'Number must be greater than zero',
+  }
+
+  const copySuccessMessage = {
+    type: 'success',
+    content: 'Copied to clipboard',
+  }
+
+  const generateSuccessMessage = {
+    type: 'success',
+    content: 'Generated',
+  }
 
   return (
     <main className="main">
+      {contextHolder}
       <Typography>
         <div className="content">
           <Title level={1}>{randomNumber}</Title>
@@ -20,11 +40,23 @@ const Main: React.FC = (): JSX.Element => {
               onClick={() => {
                 const number = handleRandomNumber()
                 setRandomNumber(number)
+                alert(generateSuccessMessage)
               }}
             >
               Random
             </Button>
-            <Button type="default" icon={<CopyFilled />} onClick={() => copyNumberFromState(randomNumber)}>
+            <Button
+              type="default"
+              icon={<CopyFilled />}
+              onClick={() => {
+                if (randomNumber === 0) {
+                  alert(errorMessage)
+                } else {
+                  copyNumberFromState(randomNumber)
+                  alert(copySuccessMessage)
+                }
+              }}
+            >
               Copy
             </Button>
           </Space>

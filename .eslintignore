@@ -1,3 +1,4 @@
 node_modules/
 .eslintrc.js
 Gradient.js
+release.config.js
