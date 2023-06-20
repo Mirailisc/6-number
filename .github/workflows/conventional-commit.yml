@@ -6,7 +6,7 @@ on:
       - synchronize
 
 jobs:
-  main:
+  pull_request:
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
