@@ -1,8 +1,8 @@
-export default config = {
+module.exports = {
   branches: ['main'],
   plugins: [
     '@semantic-release/commit-analyzer',
-    '@semantic-release/release-note-generator',
+    '@semantic-release/release-notes-generator',
     [
       '@semantic-release/git',
       {
