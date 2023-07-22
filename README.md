@@ -1,4 +1,4 @@
-![ArgoCD](https://argocd.mirailisc.me/api/badge?name=six-digits)
+![vercel](https://vercelbadge.vercel.app/api/mirailisc/6-number)
 
 # 6-number
 
