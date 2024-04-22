@@ -1,4 +1,4 @@
-FROM node:20-alpine as build-stage
+FROM node:20-alpine AS build-stage
 RUN corepack enable
 RUN corepack prepare pnpm@latest --activate
 
@@ -10,7 +10,7 @@ COPY . ./
 
 RUN pnpm run build
 
-FROM nginx as production-stage
+FROM nginx:latest AS production-stage
 RUN mkdir /app
 COPY --from=build-stage /app/dist /app
 COPY nginx.conf /etc/nginx/nginx.conf
